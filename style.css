@@ -2,7 +2,7 @@
 *{ margin:0; padding:0; box-sizing:border-box; }
 
 :root{
-  --nav-h: 80px; /* navbar taller */
+  --nav-h: 80px;
 }
 
 /* Main (hero) background */
@@ -12,19 +12,19 @@
     linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,.4)),
     url("lip gloss logo.png") center/cover no-repeat;
   color:#fff;
-  padding-top:var(--nav-h);  /* space for navbar */
+  padding-top:var(--nav-h);
   display:grid;
   place-items:center;
   text-align:center;
   position:relative;
 }
 
-/* NAVBAR — fixed top */
+/* NAVBAR */
 .navbar{
   position:fixed;
   top:0; left:0; right:0;
   height:var(--nav-h);
-  padding:0 40px;
+  padding:0 20px; /* reduced padding for small screens */
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -34,7 +34,7 @@
 
 /* Logo */
 .logo{
-  font: 700 20px/1 Arial, sans-serif; /* smaller font */
+  font: 700 20px/1 Arial, sans-serif;
   letter-spacing:1px;
   text-transform:uppercase;
   color:#fff;
@@ -45,7 +45,7 @@
 .menu ul {
   list-style: none;
   display: flex;
-  gap: 40px;
+  gap: 25px;
 }
 
 .menu ul li a {
@@ -65,9 +65,9 @@
   max-width: 700px;
   margin: auto;
   text-align: center;
+  padding: 0 10px; /* padding for small screens */
 }
 
-/* Headline Animation */
 .content h2 {
   font-family: "Times New Roman", serif;
   font-size: 50px;
@@ -78,7 +78,6 @@
   animation: fadeUp 1s forwards;
 }
 
-/* Paragraph Animation */
 .content p {
   font-family: Arial, sans-serif;
   letter-spacing: 1px;
@@ -87,10 +86,9 @@
   opacity: 0;
   transform: translateY(20px);
   animation: fadeUp 1s forwards;
-  animation-delay: 0.5s; /* Delay for paragraph */
+  animation-delay: 0.5s;
 }
 
-/* Shop Now Button Animation */
 .shop-now {
   display: inline-block;
   padding: 12px 30px;
@@ -104,7 +102,7 @@
   opacity: 0;
   transform: scale(0.8);
   animation: popIn 0.8s forwards;
-  animation-delay: 1s; /* Delay after text appears */
+  animation-delay: 1s;
 }
 
 .shop-now:hover {
@@ -112,31 +110,11 @@
   transform: scale(1.05);
 }
 
-/* Keyframes */
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes popIn {
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-
 /* About Section */
 .about {
-   padding: 80px 10%;
-  background: linear-gradient(
-      to right,
-      rgba(255, 255, 255, 0.9),
-      rgba(255, 255, 255, 0.9)
-    ),
-    url("lip gloss logo.png");
+  padding: 80px 10%;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+              url("lip gloss logo.png");
   background-size: cover;
   background-position: center;
   color: #333;
@@ -151,7 +129,6 @@
   margin: auto;
 }
 
-/* Text Side */
 .about-text {
   flex: 1 1 500px;
 }
@@ -175,25 +152,11 @@
   color: #dc5353;
 }
 
-/* Button */
 .about-text .shop-now {
-  display: inline-block;
   padding: 12px 28px;
-  background: #dc5353;
-  color: #fff;
-  border-radius: 25px;
   font-size: 16px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: 0.3s ease;
 }
 
-.about-text .shop-now:hover {
-  background: #ff6b6b;
-  transform: scale(1.05);
-}
-
-/* Image Side */
 .about-image {
   flex: 1 1 400px;
   text-align: center;
@@ -211,26 +174,10 @@
   transform: scale(1.05);
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .about-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .about-text {
-    order: 2;
-  }
-
-  .about-image {
-    order: 1;
-  }
-}
-
 /* Products Section */
 .products {
   padding: 80px 5%;
-  background: #fef6f6; /* soft background */
+  background: #fef6f6;
   text-align: center;
 }
 
@@ -248,67 +195,21 @@
   font-family: Arial, sans-serif;
 }
 
-/* Grid Layout */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
   justify-content: center;
   align-items: stretch;
 }
 
-/* Product Card */
-.product-card {
-  background: #fff;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  transition: 0.3s ease-in-out;
-  text-align: center;
-}
-
-.product-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-}
-
 .product-card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 15px;
+  height: 180px; /* smaller height for mobile */
 }
 
-.product-card h3 {
-  font-size: 20px;
-  font-weight: bold;
-  color: #222;
-  margin-bottom: 10px;
-}
-
-.product-card p {
-  font-size: 16px;
-  color: #dc5353;
-  margin-bottom: 15px;
-  font-weight: bold;
-}
-
-/* Buy Button */
 .product-card .shop-now {
-  display: inline-block;
-  padding: 10px 25px;
-  background: #dc5353;
-  color: #fff;
+  padding: 10px 20px;
   font-size: 14px;
-  border-radius: 25px;
-  text-decoration: none;
-  transition: 0.3s ease-in-out;
-}
-
-.product-card .shop-now:hover {
-  background: #ff6b6b;
-  transform: scale(1.05);
 }
 
 /* Contact Section */
@@ -319,7 +220,7 @@
       rgba(0, 0, 0, 0.6), 
       rgba(0, 0, 0, 0.6)
     ),
-    url("lip gloss logo.png"); /* 🔹 Replace with your background picture */
+    url("lip gloss logo.png");
   background-size: cover;
   background-position: center;
   padding: 80px 20px;
@@ -327,18 +228,19 @@
   align-items: center;
   justify-content: center;
   color: #fff;
+  box-sizing: border-box;
 }
 
 /* Container */
 .contact-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 50px;
+  gap: 40px;
   max-width: 1100px;
   width: 100%;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(8px);
-  padding: 40px;
+  padding: 30px;
   border-radius: 20px;
   box-shadow: 0px 4px 25px rgba(0,0,0,0.3);
 }
@@ -351,7 +253,7 @@
 }
 
 .contact-info p {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   font-size: 16px;
   line-height: 1.7;
   color: #ddd;
@@ -360,6 +262,7 @@
 .contact-info ul {
   list-style: none;
   margin-bottom: 20px;
+  padding-left: 0;
 }
 
 .contact-info ul li {
@@ -406,10 +309,12 @@
   font-size: 15px;
   font-family: Arial, sans-serif;
   background: rgba(255, 255, 255, 0.85);
+  box-sizing: border-box;
 }
 
 .contact-form textarea {
   resize: none;
+  min-height: 120px;
 }
 
 .contact-form button {
@@ -429,32 +334,107 @@
   transform: scale(1.05);
 }
 
-/* Responsive */
+/* MOBILE FIXES */
 @media (max-width: 900px) {
   .contact-container {
     grid-template-columns: 1fr;
-    text-align: center;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form button {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+
+  .contact-info h2,
+  .contact-form h2 {
+    font-size: 24px;
   }
 }
+
 
 /* Footer */
 .site-footer {
   text-align: center;
-  padding: 0%;
-  background: none;  
-  color: #fff;
+  padding: 20px;
   font-size: 14px;
-  margin-top: 50px;  /* space above footer */
+  color: #fff;
 }
 
 .site-footer a {
-  color: #ff6b6b;   /* link color matching your theme */
+  color: #ff6b6b;
   text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
 }
 
 .site-footer a:hover {
-  color: #dc5353;  /* hover effect */
-  text-decoration: underline;
+  color: #dc5353;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  to { opacity:1; transform: translateY(0); }
+}
+
+@keyframes popIn {
+  to { opacity:1; transform: scale(1); }
+}
+
+/* MOBILE MEDIA QUERIES */
+@media (max-width: 900px) {
+  .navbar {
+    padding: 0 15px;
+  }
+
+  .menu ul {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .content h2 {
+    font-size: 36px;
+  }
+
+  .content p {
+    font-size: 14px;
+  }
+
+  .shop-now {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .about-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .about-text h1 {
+    font-size: 28px;
+  }
+
+  .about-text p {
+    font-size: 14px;
+  }
+
+  .about-image img {
+    max-width: 300px;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .product-card img {
+    height: 150px;
+  }
+
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 }
